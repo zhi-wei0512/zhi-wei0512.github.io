@@ -16,6 +16,9 @@ body{
   }
 
 .header {
+  position: sticky;
+  top: 0;
+  bottom: 0;
     width: 100%;
     padding: 28px 0 10px; /* 內側空白*/
     background: url('../images/bg-header.gif') repeat-x; /*橫條文背景*/
