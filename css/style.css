@@ -1,0 +1,394 @@
+@charset "UTF-8";
+html{
+    font-size: 62.5%;
+}
+body{
+    color: #333;
+    font-size: 1.2rem;
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;  /*字體*/
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  a:link, a:visited, a:hover, a:active {
+    color: #d03c56;
+    text-decoration: none;
+  }
+
+.header {
+    width: 100%;
+    padding: 28px 0 10px; /* 內側空白*/
+    background: url('../images/bg-header.gif') repeat-x; /*橫條文背景*/
+    box-shadow: 0 0 10px 1px #e3e3e3;  /*區塊陰影*/
+}
+ /* --------------------------------
+   *    logo
+   * -------------------------------- */
+.logo {
+    width: 225px;
+    height: 56px;
+    margin: 0 auto;
+    background: url('../images/logo.png') no-repeat;
+    background-size :100% 100%;
+    text-indent: 100%;   /*往右內縮*/
+    white-space: nowrap;  /*不換行*/
+    overflow: hidden; /*超出區塊自動隱藏*/
+  }
+  .logo a {
+    display: block;
+    width: 100%;
+    height: 110%;
+  } 
+  /* --------------------------------
+   *    導覽區塊
+   * -------------------------------- */
+  .global-nav {
+    margin-top: 15px;
+    text-align: center; /*文字置中*/
+  }
+  .global-nav .nav-item {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .global-nav .nav-item a {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 8px; /*將圖形四正方變成圓弧形*/
+    color: #666; 
+    font-size: 1.3rem; /*字體大小*/
+    letter-spacing: 1px; /*文字間格*/
+    transition: 1.15s; /* 轉換屬性，延遲樣式變化時間*/
+  }
+  .global-nav .nav-item.active a,
+.global-nav .nav-item a:hover {  /*a:hover 擬類別(游標移到上方)*/
+  background-color: #d03c56;
+  color: rgb(110, 101, 101);
+}
+  /* --------------------------------
+   *    body 區塊一
+   * -------------------------------- */
+.hot-topic{
+    display: block;
+    height: 300px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 4px -4px rgba(0,0,0,15); /*陰影、模糊效果*/
+    transition: opacity 0.15s;  /* opacity 不透明度*/
+}
+.hot-topic:hover{
+    opacity: 0.85;
+}
+.hot-topic .image{
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.hot-topic .content{
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+  padding: 105px 25px 0;
+  background-color: #2d3d54;
+  line-height: 1.6; /*指定行的高度*/
+}
+.hot-topic .title {
+  margin-bottom: 15px;
+  color: #fff;  
+  font-weight: normal;  /*不要粗體字*/
+  font-size: 2.0rem;
+}
+.hot-topic .desc {
+  color: #ddc;
+}
+.hot-topic .date {
+  position: absolute;  /*讓日期移到最上方*/
+  top: 60px;
+  left: 0;      /*不受父元件影響靠左 */
+  width: 140px;
+  padding: 4px;
+  background-color: #fff; /*背景顏色*/
+  color: #2d3d54; /*字體顏色*/
+  text-align: center;  /* 文字置中*/
+  letter-spacing: 1px;  /*字體間格*/
+  font-weight: bold; /*字體粗細*/
+  font-size: 1.1rem; /*字體大小*/
+  line-height: 1; /*指定行的高度*/
+}
+  /* --------------------------------
+   *    body 區塊二
+   * -------------------------------- */
+.heading {  /*跟loge 相同*/
+  padding: 10px 12px;
+  background: url('../images/bg-slash.gif');
+  letter-spacing: 1px;
+  font-size: 1.6rem;
+}
+.scroll-list {
+  max-height: 220px; /*多max 會隨著內容多寡調整高度*/
+  overflow-y: auto;/* 當子元件超過父高度，出現垂直捲軸*/
+  margin-bottom: 30px; 
+  list-style-type: none;  /* ? */
+}
+.scroll-list .scroll-item a {
+  display: block;
+  padding: 10px 15px; 
+  color: #333;
+  font-size: 0;
+  transition: background-color 0.1s;
+}
+.scroll-list .scroll-item:nth-of-type(even) a {  /*對偶數列做動作*/
+  background: url('../images/bg-slash.gif');
+}
+.scroll-list .scroll-item a:hover {
+  background-color: #fafaf8;
+}
+
+.scroll-list .date {
+  display: inline-block;
+  width: 19%;
+  letter-spacing: 1px; /*文字間格*/
+  font-weight: bold;
+  font-size: 1.0rem;
+}
+.scroll-list .category {
+  display: inline-block;
+  width: 8%;
+  border-radius: 5px;  /*圓導角*/
+  background-color: #d03c56;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 1.0rem;
+  line-height: 16px;
+}
+.scroll-list .category.news {  /*新聞類別是NEWS 變色*/
+  background-color: #2c3c53;
+}
+.scroll-list .title {
+  display: inline-block;
+  width: 73%;
+  padding-left: 15px;
+  overflow: hidden;  /*內容過長無法置入 以 ...省略*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.2rem;
+}
+
+  /* --------------------------------
+   *    body 區塊三
+   * -------------------------------- */
+
+.article-box {  /*設定樣式*/
+  position: relative;
+  display: block;
+  width: 315px;
+  height: 360px;
+  margin-bottom: 30px;
+  padding: 210px 15px 0;
+  box-shadow: 6px 6px 8px -4px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.15s;
+}
+.article-box:hover { /*外觀、文字*/
+  opacity: 0.8;
+}
+.article-box:nth-of-type(odd) { /*奇數靠左*/
+  float: left;
+}
+.article-box:nth-of-type(even) { /*偶數靠右*/
+  float: right;
+}
+.article-box .title {  
+  margin-top: 30px;
+  color: #555;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+.article-box .desc {
+  margin-top: 5px;
+  color: #333;
+  overflow: hidden;   /*省略....*/
+  text-overflow: ellipsis; /*省略....*/
+  white-space: nowrap; /*省略....*/
+}
+.article-box .date { /*日期*/
+  position: absolute;  /*佐上靠齊*/
+  right: 0;
+  bottom: 15px;
+  display: block;
+  width: 160px;
+  padding: 4px;
+  background-color: #b5d264;
+  color: #2d3d54;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.article-box .image {  /*影像*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+  /* --------------------------------
+   *    body 旁邊區塊一
+   * -------------------------------- */
+.ranking {
+  margin-bottom: 30px;
+  list-style-type: none;
+  counter-reset: ranking;  /* 計算數字*/
+}
+.ranking .ranking-item {
+  margin-top: 15px;
+}
+.ranking .ranking-item a {
+  display: block;
+  font-size: 0;
+  transition: opacity 0.15s;
+}
+.ranking .ranking-item a:hover {
+  opacity: 0.8;
+}
+.ranking .image {
+  width: 55px;
+  height: 55px;
+}
+
+.ranking .text { /*內容*/
+  display: inline-block;
+  width: 182px;
+  color: #000;
+  vertical-align: 20px; /*從上開始對齊*/
+  font-size: 1.2rem;
+  letter-spacing: 3px; /*文字間格*/
+  line-height: 1.5;
+}
+.ranking .order {  /*順位外框*/
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  color: #aaa;
+  vertical-align: 20px; 
+  text-align: center;
+  font-weight: bold;
+  line-height: 16px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);  /*讓元件傾斜45度*/
+}
+.ranking .order::before {
+  content: counter(ranking);
+  display: inline-block;
+  counter-increment: ranking;
+  font-size: 1.0rem;
+  -webkit-transform: rotate(-45deg);  /*反向傾斜 讓數字正確*/
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.ranking .ranking-item:nth-of-type(1) .order,
+.ranking .ranking-item:nth-of-type(2) .order,
+.ranking .ranking-item:nth-of-type(3) .order {
+  border: none;
+  color: #fff;
+  font-weight: normal;
+  line-height: 18px;
+}
+.ranking .ranking-item:nth-of-type(1) .order { /*nth-of-type(1) 指定元素第幾個要素*/
+  background-color: #dab413; 
+}
+.ranking .ranking-item:nth-of-type(2) .order {
+  background-color: #6e7b84;
+}
+.ranking .ranking-item:nth-of-type(3) .order {
+  background-color: #a0541a;
+}
+
+  /* --------------------------------
+   *    body 旁邊區塊二
+   * -------------------------------- */
+
+.documents,
+.documents ul {
+  list-style-type: none; /*消除預設樣式*/
+}
+.documents > li .title {  /*指對 documents正下面li元素做控制*/
+  margin: 15px 0;
+  padding-left: 8px;
+  border-left: 5px solid #d03c56;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.documents > li + li {
+  margin-top: 25px;
+}
+.documents > li ul {
+  margin: 15px;
+}
+.documents > li ul > li {
+  margin-bottom: 15px;
+  padding-left: 10px;
+  background: url('../images/arrow.gif') no-repeat left center;  /*小箭頭*/
+}
+.documents a:hover {
+  text-decoration: underline;
+}
+  /* --------------------------------
+   *   底部區塊
+   * -------------------------------- */
+.horizontal-list {
+  width: 970px;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 0;
+}
+.horizontal-list .horizontal-item {
+  display: inline-block;
+  padding: 0 15px;
+  letter-spacing: 1px;
+}
+.horizontal-list .horizontal-item + .horizontal-item {
+  border-left: 1px solid #bbb;
+}
+.horizontal-list .horizontal-item a {
+  border-bottom: 1px dashed #777;  /*虛線*/
+  color: #bbb;
+  font-size: 1.1rem;
+  transition: color 0.15s;
+}
+.horizontal-list .horizontal-item a:hover {
+  color: #ddd;
+}
+.copyright {
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.wrapper{
+    width: 970px;
+    margin: 30px auto 40px;  /*元件邊留白*/
+}
+.main {
+    display: block;
+    float: left;
+    width: 660px;
+}
+.sidemenu{
+    float: right;
+    width: 275px;
+}
+.footer{
+    width: 100%;
+    padding: 20px 0 30px;
+    background: #2d3d54 url('../images/bg-footer.gif');
+    color: #fff;
+}
+.clearfix::after{
+    content: "";
+    display: block; 
+   clear: both; /* 清除浮動 */
+}
